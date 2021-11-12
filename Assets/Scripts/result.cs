@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
+using AssemblyCSharp;
 
 public class result : MonoBehaviour
 {
@@ -44,7 +45,7 @@ public class result : MonoBehaviour
         form.AddField("username", usernametext2);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/sgame.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/sgame.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -86,7 +87,7 @@ public class result : MonoBehaviour
         form.AddField("username", usernametext2);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/startg.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/startg.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -135,7 +136,7 @@ public class result : MonoBehaviour
         form.AddField("mode", mode);
         form.AddField("id", id);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/resullt.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/resullt.php", form);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)

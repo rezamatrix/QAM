@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using AssemblyCSharp;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -155,7 +156,7 @@ public class game : MonoBehaviour
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
     
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/lvlup.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/lvlup.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -188,7 +189,7 @@ public class game : MonoBehaviour
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/pb.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/pb.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -239,7 +240,7 @@ public class game : MonoBehaviour
         form.AddField("username2", usernametext2);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/addcoin.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/addcoin.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -274,7 +275,7 @@ public class game : MonoBehaviour
         form.AddField("username", usernametext2);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/q.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/q.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -338,7 +339,7 @@ public class game : MonoBehaviour
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
         form.AddField("ans", ans);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/qans.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/qans.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {

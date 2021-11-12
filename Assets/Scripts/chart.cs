@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using AssemblyCSharp;
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,7 +37,7 @@ public class chart : MonoBehaviour
         form.AddField("username", usernametext);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/chart.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/chart.php", form);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)

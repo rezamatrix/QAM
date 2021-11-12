@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using AssemblyCSharp;
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -54,7 +55,7 @@ public class contnue : MonoBehaviour
         form.AddField("username2", usernametext2);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/removeinv.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/removeinv.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -96,7 +97,7 @@ public class contnue : MonoBehaviour
         form.AddField("username2", usernametext2);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/accinv.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/accinv.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -132,7 +133,7 @@ public class contnue : MonoBehaviour
         form.AddField("username", usernametext);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/game.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/game.php", form);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
@@ -245,7 +246,7 @@ public class contnue : MonoBehaviour
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/userinfo.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/userinfo.php", form);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)

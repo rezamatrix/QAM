@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using AssemblyCSharp;
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,7 +35,7 @@ public class login : MonoBehaviour
         form.AddField("username", usernametext.ToLower());
         form.AddField("password", passwordtext);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/login.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/login.php", form);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)

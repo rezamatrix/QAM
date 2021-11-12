@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using AssemblyCSharp;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -58,7 +59,7 @@ public class iap : MonoBehaviour
         form.AddField("username2", usernametext2);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/addcoin.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/addcoin.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -95,7 +96,7 @@ public class iap : MonoBehaviour
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/userinfo.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/userinfo.php", form);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using UnityEngine.SceneManagement;
+using AssemblyCSharp;
 
 public class addItemFreinds : MonoBehaviour
 {
@@ -100,7 +101,7 @@ public class addItemFreinds : MonoBehaviour
         form.AddField("username2", usernametext2);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/reqplay.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/reqplay.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -132,7 +133,7 @@ public class addItemFreinds : MonoBehaviour
         form.AddField("username2", usernametext2);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/addfff.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/addfff.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -165,7 +166,7 @@ public class addItemFreinds : MonoBehaviour
         form.AddField("mode", mode);
         form.AddField("uq", uq);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/addf.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/addf.php", form);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
@@ -251,7 +252,7 @@ public class addItemFreinds : MonoBehaviour
         form.AddField("username2", usernametext2);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/removeff.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/removeff.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -288,7 +289,7 @@ public class addItemFreinds : MonoBehaviour
         form.AddField("username2", usernametext2);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/remover.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/remover.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -325,7 +326,7 @@ public class addItemFreinds : MonoBehaviour
         form.AddField("username2", usernametext2);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/removereq.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/removereq.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -362,7 +363,7 @@ public class addItemFreinds : MonoBehaviour
         form.AddField("username2", usernametext2);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/addff.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/addff.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -393,7 +394,7 @@ public class addItemFreinds : MonoBehaviour
         string usernametext = user;      
         WWWForm form = new WWWForm();
         form.AddField("username", usernametext);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/userinfos.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/userinfos.php", form);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
@@ -463,7 +464,7 @@ public class addItemFreinds : MonoBehaviour
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/userinfo.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/userinfo.php", form);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
@@ -497,7 +498,7 @@ public class addItemFreinds : MonoBehaviour
         Debug.Log(usernametext);
         WWWForm form = new WWWForm();
         form.AddField("username", usernametext);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/json.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/json.php", form);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)

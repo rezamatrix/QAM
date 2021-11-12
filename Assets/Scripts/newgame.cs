@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using AssemblyCSharp;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -31,7 +32,7 @@ public class newgame : MonoBehaviour
         form.AddField("username", usernametext2);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/findgame.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/findgame.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {

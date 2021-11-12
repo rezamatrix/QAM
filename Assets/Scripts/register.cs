@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 
 using UnityEngine.SceneManagement;
+using AssemblyCSharp;
 
 public class register : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class register : MonoBehaviour
         form.AddField("username", usernametext);
         form.AddField("password", passwordtext);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/reg.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/reg.php", form);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
@@ -73,7 +74,7 @@ public class register : MonoBehaviour
     }
     IEnumerator gesusername()
     {
-        UnityWebRequest www = UnityWebRequest.Get("http://bitcorp.ir/qaa/ges.php");
+        UnityWebRequest www = UnityWebRequest.Get(StaticStrings.API + "/ges.php");
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {

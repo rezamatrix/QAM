@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using AssemblyCSharp;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -118,7 +119,7 @@ public class perfabs : MonoBehaviour
             form.AddField("username2", usernametext2);
             form.AddField("password", passwordtext);
             form.AddField("mode", mode);
-            UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/changeav.php", form);
+            UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/changeav.php", form);
             yield return www.SendWebRequest();
             if (www.isNetworkError || www.isHttpError)
             {
@@ -156,7 +157,7 @@ public class perfabs : MonoBehaviour
         form.AddField("username2", usernametext2);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/changepass.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/changepass.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -193,7 +194,7 @@ public class perfabs : MonoBehaviour
         form.AddField("username2", usernametext2);
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/changedis.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/changedis.php", form);
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
@@ -230,7 +231,7 @@ public class perfabs : MonoBehaviour
         form.AddField("password", passwordtext);
         form.AddField("mode", mode);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://bitcorp.ir/qaa/userinfo.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(StaticStrings.API + "/userinfo.php", form);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
